@@ -31,14 +31,11 @@ gulp.task('default', function() {
   //place code for your default task here
 });
 
-//compile and prefix less into css
-gulp.task('less', function () {
-  return gulp.src('./less/app.less')
-    .pipe(less({
-    	plugins: [autoprefix],
-      	paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
-    .pipe(gulp.dest('./theme/css/'));
+//compile and prefix less into css 
+gulp.task('less', function(){
+    return gulp.src('less/style.less')
+        .pipe(less())
+        .pipe(gulp.dest('../styles/'));
 });
 
 //minify css
