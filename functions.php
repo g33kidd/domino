@@ -96,43 +96,24 @@ function domino_widgets_init() {
 }
 add_action( 'widgets_init', 'domino_widgets_init' );
 
-/**
- * Enqueue scripts and styles.
- */
-function domino_scripts() {
-	wp_enqueue_style( 'domino-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'domino-navigation', get_template_directory_uri() . '/javascript/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'domino-skip-link-focus-fix', get_template_directory_uri() . '/javascript/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'domino_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
+// Implement the Custom Header feature.
 //require get_template_directory() . '/functions/custom-header.php';
 
-/**
- * Custom template tags for this theme.
- */
+// Metaboxes
+require get_template_directory() . '/functions/boxes/boxes.php';
+new Boxes;
+
+// Load scripts and styles for this theme.
+require get_template_directory() . '/functions/scripts.php';
+
+// Custom template tags for this theme.
 require get_template_directory() . '/functions/template-tags.php';
 
-/**
- * Custom functions that act independently of the theme templates.
- */
+// Custom functions that act independently of the theme templates.
 require get_template_directory() . '/functions/extras.php';
 
-/**
- * Customizer additions.
- */
+// Customizer Additions
 require get_template_directory() . '/functions/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
+// Load Jetpack compatibility file.
 require get_template_directory() . '/functions/jetpack.php';
