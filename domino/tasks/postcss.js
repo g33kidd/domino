@@ -8,8 +8,9 @@ var processors = [
   require('postcss-nested'),
   require('postcss-simple-vars'),
   require('postcss-simple-extend'),
-  // autoprefixer({browsers: ['last 2 versions']})
+  autoprefixer({browsers: ['last 2 versions']})
   // Add the postcss processors here.
+  // https://github.com/postcss/postcss#plugins
 ];
 
 gulp.task('compile:postcss', function() {
