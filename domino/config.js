@@ -1,5 +1,12 @@
 module.exports = {
 
+  paths: {
+    theme: "../",
+    styles: "./styles/",
+    tasks: "./tasks/",
+    cssDest: "../assets/css"
+  },
+
   theme: {
     name: "Domino",
     uri: "http://underscores.me/",
@@ -11,6 +18,20 @@ module.exports = {
     licenseUri: "http://www.gnu.org/licenses/gpl-2.0.html",
     textDomain: "domino",
     tags: "domino,themazing,theme,tags"
+  },
+
+  sass: {
+    srcPath: "./styles/sass/**/*.{scss,sass}",
+    ignore: "!./styles/sass/**/_*.{scss,sass}"
+  },
+
+  postcss: {
+    srcPath: "./styles/css/**/*.css"
+  },
+
+  less: {
+    srcPath: "./styles/less/**/*.less",
+    ignore: "!./styles/less/**/_*.less"
   }
 
 }

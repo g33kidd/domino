@@ -1,2 +1,3 @@
 .DS_Store
-_development/node_modules/**/*
+domino/node_modules/**/*
+domino/components/**/*

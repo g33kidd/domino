@@ -1,0 +1,14 @@
+.social-icon {
+    padding: 10px 5px;
+}
+.social-icon.is-twitter {
+    background: #55acee;
+}
+.social-icon.is-facebook {
+    background: #3b5998;
+}
+@media (max-width: 640px) {
+    .social-icon {
+        padding: 0;
+    }
+}
