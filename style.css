@@ -8355,6 +8355,14 @@ button.close {
 .fa-medium:before {
   content: "\f23a";
 }
+#primary {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#secondary {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .site-header {
   padding: 20px 0px;
   background-color: #2b3e50;
@@ -8375,13 +8383,28 @@ button.close {
   float: right;
   padding: 10px 0px;
 }
-.site-header .main-navigation .menu ul li {
+.site-header .main-navigation .menu li {
   display: inline-block;
+  margin-right: 10px;
 }
-.site-header .main-navigation .menu ul li a {
-  padding: 5px 8px;
+.site-header .main-navigation .menu li:last-of-type {
+  margin-right: 0px;
+}
+.site-header .main-navigation .menu li a {
+  padding: 5px 5px;
   color: #ffffff;
+  transition: color 150ms ease;
 }
-.site-header .main-navigation .menu ul li a:hover {
+.site-header .main-navigation .menu li a:hover {
+  color: #d9d9d9;
   text-decoration: none;
+  border-bottom: 2px solid #df691a;
+}
+.site-footer {
+  background-color: #FE5E3E;
+  padding: 20px 0px;
+}
+#secondary .widget .widget-title {
+  font-size: 25px;
+  color: #333;
 }

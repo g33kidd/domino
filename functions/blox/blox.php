@@ -19,24 +19,43 @@ class Blox {
     }
 
     public function save($post_id) {
-        if(isset($_POST['sidebar_enabled'])) {
-            update_post_meta($post_id, 'sidebar_enabled', $_POST['sidebar_enabled']);
+        if(isset($_POST['sidebar_position'])) {
+            update_post_meta($post_id, 'sidebar_position', $_POST['sidebar_position']);
         }else{
-            update_post_meta($post_id, 'sidebar_enabled', '');
+            update_post_meta($post_id, 'sidebar_position', '');
         }
     }
 
     public function display_meta_box($post) {
-        $sidebar_enabled = get_post_meta($post->ID, 'sidebar_enabled', true);
-        if($sidebar_enabled === '1') {
-            $checked = 'checked="checked"';
+        $sidebar_position = get_post_meta($post->ID, 'sidebar_position', true);
+        $left = '';
+        $right = '';
+        $none = '';
+        switch ($sidebar_position) {
+            case 'left':
+                $left = 'checked="checked"';
+                break;
+            case 'right':
+                $right = 'checked="checked"';
+                break;
+            case 'none':
+                $none = 'checked="checked"';
+                break;
+            
+            default:
+                $left = '';
+                $right = '';
+                $none = '';
+                break;
         }
 
         // Sidebar Settings
         // - Sidebar Enabled/Disabled
-        echo '<label for="sidebarEnabled" class="selectit">
-              <input type="checkbox" id="sidebarEnabled" name="sidebar_enabled" value="1" '. $checked .'></input> Sidebar Enabled
-              </label>';
+        echo '<p><strong>Sidebar Position</strong></p>
+              <div class="inside">
+              <div><input type="radio" id="sidebarPosition" name="sidebar_position" value="left" '. $left .'> Left</div>
+              <div><input type="radio" id="sidebarPosition" name="sidebar_position" value="right" '. $right .'> Right</div>
+              <div><input type="radio" id="sidebarPosition" name="sidebar_position" value="none" '. $none .'> None</div></div>';
     }
 
 }

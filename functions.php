@@ -74,9 +74,11 @@ if(!function_exists('domino_setup')) {
 
     // Blox - simple meta boxes library
     require get_template_directory() . '/functions/blox/blox.php';
+    // require get_template_directory() . '/functions/blox/helpers.php';
     new Blox;
 
     require get_template_directory() . '/functions/scripts.php';
+    require get_template_directory() . '/functions/helpers.php';
     require get_template_directory() . '/functions/widgets.php';
     require get_template_directory() . '/functions/template-tags.php';
     require get_template_directory() . '/functions/extras.php';
