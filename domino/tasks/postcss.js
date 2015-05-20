@@ -19,5 +19,5 @@ gulp.task('compile:postcss', function() {
     .on('error', function(error) {
       console.log(error)
     })
-    .pipe(gulp.dest(config.paths.cssDest))
+    .pipe(gulp.dest('../assets/css'))
 });

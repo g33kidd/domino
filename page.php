@@ -10,6 +10,11 @@
  * @package Domino
  */
 
+$page = get_queried_object();
+$page_id = get_queried_object_id();
+
+$sidebar_enabled = get_post_meta($page_id, 'sidebar_enabled', true);
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -31,5 +36,9 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php
+
+if($sidebar_enabled)
+	get_sidebar();
+
+get_footer(); ?>

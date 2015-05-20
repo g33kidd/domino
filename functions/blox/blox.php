@@ -1,6 +1,6 @@
 <?php
 
-class Boxes {
+class Blox {
 
     public function __construct() {
         add_action('add_meta_boxes', array($this, 'add_meta_box'));
@@ -31,6 +31,9 @@ class Boxes {
         if($sidebar_enabled === '1') {
             $checked = 'checked="checked"';
         }
+
+        // Sidebar Settings
+        // - Sidebar Enabled/Disabled
         echo '<label for="sidebarEnabled" class="selectit">
               <input type="checkbox" id="sidebarEnabled" name="sidebar_enabled" value="1" '. $checked .'></input> Sidebar Enabled
               </label>';

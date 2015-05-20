@@ -20,18 +20,20 @@ module.exports = {
     tags: "domino,themazing,theme,tags"
   },
 
+  ignoreGlobal: "!./styles/style.{less,scss,sass,css}",
+
   sass: {
-    srcPath: "./styles/sass/**/*.{scss,sass}",
-    ignore: "!./styles/sass/**/_*.{scss,sass}"
+    srcPath: "./styles/**/*.{scss,sass}",
+    ignore: "!./styles/**/_*.{scss,sass}"
   },
 
   postcss: {
-    srcPath: "./styles/css/**/*.css"
+    srcPath: "./styles/**/*.css"
   },
 
   less: {
-    srcPath: "./styles/less/**/*.less",
-    ignore: "!./styles/less/**/_*.less"
+    srcPath: "./styles/**/*.less",
+    ignore: "!./styles/**/_*.less"
   }
 
 }

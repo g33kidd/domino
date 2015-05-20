@@ -9,96 +9,77 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+    $content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'domino_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-function domino_setup() {
+if(!function_exists('domino_setup')) {
 
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Domino, use a find and replace
-	 * to change 'domino' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'domino', get_template_directory() . '/languages' );
+    function domino_setup() {
+        // Make the theme available for translation.
+        load_theme_textdomain('domino', get_template_directory() . '/languages');
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+        // Add default posts and comments RSS feed links to head.
+        add_theme_support('automatic-feed-links');
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
+        // This theme does not use hard-coded <title> tag
+        add_theme_support('title-tag');
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
-	//add_theme_support( 'post-thumbnails' );
+        // Enable support for post Thumbnails
+        add_theme_support('post-thumbnails');
+        
+        // Setup the main menus
+        register_nav_menus(array(
+            'primary' => __("Primary Menu", 'domino'),
+        ));
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'domino' ),
-	) );
+        add_theme_support( 'html5', array(
+            'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+        ));
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-	) );
+        add_theme_support( 'post-formats', array(
+            'aside', 'image', 'video', 'quote', 'link',
+        ));
 
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link',
-	) );
+        // Set up the WordPress core custom background feature.
+        add_theme_support( 'custom-background', apply_filters( 'domino_custom_background_args', array(
+            'default-color' => 'ffffff',
+            'default-image' => '',
+        )));
+    }
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'domino_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+    function setup_home_and_blog_pages() {
+    	$home_page = array('post_name'=>'home', 'post_title'=>'Home', 'post_status'=>'publish', 'post_type'=>'page');
+    	$blog_page = array('post_name'=>'blog', 'post_title'=>'Blog', 'post_status'=>'publish', 'post_type'=>'page');
+
+    	if(!get_option('page_on_front') && !get_option('page_for_posts') && get_option('show_on_front') !== 'page') {
+    		if(get_page_by_title('home') === NULL && get_page_by_title('blog') === NULL) {
+	    		$home = wp_insert_post($home_page);
+	    		$blog = wp_insert_post($blog_page);
+	    	}
+
+	    	$home = get_page_by_title('home');
+	    	$blog = get_page_by_title('blog');
+
+	    	update_option('page_on_front', $home->ID);
+    		update_option('page_for_posts', $blog->ID);
+    		update_option('show_on_front', 'page');
+    	}
+    }
+
+    // Sets up the home and blog pages. Comment out if needed.
+    add_action('init', 'setup_home_and_blog_pages');
+
+    // Setup the theme.
+    add_action('after_setup_theme', 'domino_setup');
+
+    // Blox - simple meta boxes library
+    require get_template_directory() . '/functions/blox/blox.php';
+    new Blox;
+
+    require get_template_directory() . '/functions/scripts.php';
+    require get_template_directory() . '/functions/widgets.php';
+    require get_template_directory() . '/functions/template-tags.php';
+    require get_template_directory() . '/functions/extras.php';
+    require get_template_directory() . '/functions/customizer.php';
+    require get_template_directory() . '/functions/jetpack.php';
 }
-endif; // domino_setup
-add_action( 'after_setup_theme', 'domino_setup' );
-
-// Implement the Custom Header feature.
-//require get_template_directory() . '/functions/custom-header.php';
-
-// Metaboxes
-require get_template_directory() . '/functions/boxes/boxes.php';
-new Boxes;
-
-// Load scripts and styles for this theme.
-require get_template_directory() . '/functions/scripts.php';
-
-// Widgets
-require get_template_directory() . '/functions/widgets.php';
-
-// Custom template tags for this theme.
-require get_template_directory() . '/functions/template-tags.php';
-
-// Custom functions that act independently of the theme templates.
-require get_template_directory() . '/functions/extras.php';
-
-// Customizer Additions
-require get_template_directory() . '/functions/customizer.php';
-
-// Load Jetpack compatibility file.
-require get_template_directory() . '/functions/jetpack.php';
