@@ -18,12 +18,12 @@ get_header(); ?>
                         </header>
                     
                         <?php while(have_posts()) : the_post(); ?>
-                            <?php get_template_part('template-parts/content', 'search'); ?>
+                            <?php get_template_part('templates/content', 'search'); ?>
                         <?php endwhile; ?>
                         <?php the_posts_navigation(); ?>
 
                     <?php else: ?>
-                        <?php get_template_part('template-parts/content', 'none'); ?>
+                        <?php get_template_part('templates/content', 'none'); ?>
                     <?php endif; ?>
 
                 </div>
