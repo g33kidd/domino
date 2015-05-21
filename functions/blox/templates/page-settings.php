@@ -6,3 +6,4 @@
     <option value="right">Right</option>
     <option value="none">None</option>
 </select>
+<p>Need help? Use the Help tab in the upper right of your screen.</p>
