@@ -5,10 +5,10 @@ Domino is a beta development theme used by Themazing to experiment with while we
 
 We hav decided to slit the theme up into the following base heirarchy:
 
-1. _development : development/build components
-2. inc : theme functions
-3. javazcript : theme javascript
-4. partials : template parts
+1. domino : development/build components
+2. functions : theme functions
+3. assets : theme css, fonts, and javascript
+4. templates : template parts
 
 
 Installation
