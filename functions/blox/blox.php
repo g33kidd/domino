@@ -1,61 +1,39 @@
 <?php
 
-class Blox {
+class Blox_Metabox {
 
-    public function __construct() {
-        add_action('add_meta_boxes', array($this, 'add_meta_box'));
-        add_action('save_post', array($this, 'save'));
+    var $id;
+    var $title = "Custom Metabox";
+    var $template;
+    var $types;
+    var $priority = "high";
+    var $context = "normal";
+    var $meta;
+
+    function Blox_Metabox($args) {
+        $this->meta = array();
+        $this->types = array('page', 'post');
+        $this->id = $args['id'];
+        $this->title = $args['title'];
+        $this->template = $args['template'];
+        $this->context = $args['context'];
+        $this->priority = $args['priority'];
+
+        add_action('add_meta_boxes', array($this, '_init'));
     }
 
-    public function add_meta_box($post_type) {
-        add_meta_box(
-            'domino-page-meta',
-            __('Page Settings', 'domino'),
-            array($this, 'display_meta_box'),
-            'page',
-            'side',
-            'low'
-        );
-    }
-
-    public function save($post_id) {
-        if(isset($_POST['sidebar_position'])) {
-            update_post_meta($post_id, 'sidebar_position', $_POST['sidebar_position']);
-        }else{
-            update_post_meta($post_id, 'sidebar_position', '');
+    function _init() {
+        foreach($this->types as $type) {
+            add_meta_box($this->id . '_metabox', 
+                $this->title, array($this, '_setup'), 
+                $type, $this->context, $this->priority);
         }
     }
 
-    public function display_meta_box($post) {
-        $sidebar_position = get_post_meta($post->ID, 'sidebar_position', true);
-        $left = '';
-        $right = '';
-        $none = '';
-        switch ($sidebar_position) {
-            case 'left':
-                $left = 'checked="checked"';
-                break;
-            case 'right':
-                $right = 'checked="checked"';
-                break;
-            case 'none':
-                $none = 'checked="checked"';
-                break;
-            
-            default:
-                $left = '';
-                $right = '';
-                $none = '';
-                break;
-        }
-
-        // Sidebar Settings
-        // - Sidebar Enabled/Disabled
-        echo '<p><strong>Sidebar Position</strong></p>
-              <div class="inside">
-              <div><input type="radio" id="sidebarPosition" name="sidebar_position" value="left" '. $left .'> Left</div>
-              <div><input type="radio" id="sidebarPosition" name="sidebar_position" value="right" '. $right .'> Right</div>
-              <div><input type="radio" id="sidebarPosition" name="sidebar_position" value="none" '. $none .'> None</div></div>';
+    function _setup() {
+        global $post;
+        $metabox =& $this;
+        $id = $this->id;
+        include $this->template;
     }
-
 }
