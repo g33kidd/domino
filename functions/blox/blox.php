@@ -13,19 +13,24 @@ class Blox_Metabox {
 
     function Blox_Metabox($args) {
         $this->meta = array();
-        $this->types = array('page', 'post');
-        $this->fields = $args['fields'];
-        $this->id = $args['id'];
-        $this->title = $args['title'];
-        $this->template = $args['template'];
-        $this->context = $args['context'];
-        $this->priority = $args['priority'];
+
+        if(is_array($args)){
+            foreach($args as $k => $v){
+                $this->$k = $v;
+            }
+            if(empty($this->id)) die("Metabox ID required.");
+            if(is_numeric($this->id)) die("Metabox ID must be a string.");
+            if(empty($this->template)) die("Metabox template string is required.");
+        }else{
+            die("Parameters required to be in array form.");
+        }
 
         add_action('add_meta_boxes', array($this, '_init'));
     }
 
     function _init() {
-        foreach($this->types as $type) {
+        $types = explode('|', $this->types);
+        foreach($types as $type) {
             add_meta_box($this->id . '_metabox', 
                 $this->title, array($this, '_setup'), 
                 $type, $this->context, $this->priority);
@@ -44,16 +49,16 @@ class Blox_Metabox {
     function _save($post_id) {
         foreach($this->fields as $field) {
             if(isset($_POST[$field])) {
-                update_post_meta($post_id, $this->id . '_' . $field, $_POST[$field])
+                update_post_meta($post_id, $this->id . '_' . $field, $_POST[$field]);
             }else{
                 delete_post_meta($post_id, $this->id);
             }
         }
     }
 
-
     /// WIP
     function get_the_value() {}
     function the_value() {}
     function is_selected($name, $value = NULL, $is_default = FALSE) {}
+
 }
