@@ -49,7 +49,7 @@ class Blox_Metabox {
     function _save($post_id) {
         foreach($this->fields as $field) {
             if(isset($_POST[$field])) {
-                update_post_meta($post_id, $this->id . '_' . $field, $_POST[$field]);
+                update_post_meta($post_id, $field, $_POST[$field]);
             }else{
                 delete_post_meta($post_id, $this->id);
             }
@@ -57,8 +57,15 @@ class Blox_Metabox {
     }
 
     /// WIP
-    function get_the_value() {}
-    function the_value() {}
-    function is_selected($name, $value = NULL, $is_default = FALSE) {}
+    public function get_the_value($name) {
+        global $post;
+        return get_post_meta($post->ID, $name, true);
+    }
+
+    public function the_value($name) {
+        echo $this->get_the_value($name);
+    }
+
+    function is_selected() {}
 
 }

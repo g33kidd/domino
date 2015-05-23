@@ -1,7 +1,7 @@
 <?php
 
 $page_settings = new Blox_MetaBox(array(
-    'id' => '_page_settings',
+    'id' => 'page_settings',
     'title' => 'Page Settings',
     'type' => 'page|post', // Can separate with pipes: page|post|events
     'context' => 'side',
