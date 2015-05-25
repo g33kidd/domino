@@ -27,7 +27,7 @@ $config = array(
     /**
      * Customizer allows you to add options to the WordPress customizer.
      */
-    'enable_domino_customizer' => false,
+    'enable_domino_customizer' => true,
 );
 
 ?>

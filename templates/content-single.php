@@ -11,6 +11,6 @@
     </div>
 
     <footer class="entry-footer">
-        <?php domino_entry_footer(); ?>
+        <?php get_template_part('templates/entry', 'footer'); ?>
     </footer>
 </article>

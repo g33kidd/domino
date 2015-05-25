@@ -33,6 +33,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php domino_entry_footer(); ?>
+		<?php get_template_part('templates/entry', 'footer'); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

@@ -26,6 +26,7 @@ class Blox_Metabox {
         }
 
         add_action('add_meta_boxes', array($this, '_init'));
+        add_action('save_post', array($this, '_save'));
     }
 
     function _init() {
@@ -35,18 +36,20 @@ class Blox_Metabox {
                 $this->title, array($this, '_setup'), 
                 $type, $this->context, $this->priority);
         }
-
-        add_action('save_post', array($this, '_save'));
     }
 
     function _setup() {
         global $post;
-        $metabox =& $this;
+        $blox =& $this;
         $id = $this->id;
         include $this->template;
     }
 
     function _save($post_id) {
+        // $real_post_id = isset($_POST['post_ID']) ? $_POST['post_ID'] : NULL;
+        // $nonce = isset($_POST[$this->id.'_nonce']) ? $_POST[$this->id.'_nonce'] : NULL;
+        // if(!wp_verify_nonce($nonce, $this->id)) return $post_id;
+
         foreach($this->fields as $field) {
             if(isset($_POST[$field])) {
                 update_post_meta($post_id, $field, $_POST[$field]);
@@ -57,6 +60,11 @@ class Blox_Metabox {
     }
 
     /// WIP
+    public function the_meta() {
+        global $post;
+        return get_post_meta($post->ID);
+    }
+
     public function get_the_value($name) {
         global $post;
         return get_post_meta($post->ID, $name, true);
@@ -66,6 +74,17 @@ class Blox_Metabox {
         echo $this->get_the_value($name);
     }
 
-    function is_selected() {}
+    public function is_selected($name, $value) {
+        $metabox_value = $this->get_the_value($name);
+        if($metabox_value == $value) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function the_radio_state($name, $value) {
+        if($this->is_selected($name, $value)) echo ' checked="checked"';
+    }
 
 }

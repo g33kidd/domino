@@ -14,7 +14,7 @@ function domino_widgets_init() {
         'after_widget'  => '</aside>',
         'before_title'  => '<h1 class="widget-title">',
         'after_title'   => '</h1>',
-    ) );
+    ));
 }
 
 add_action( 'widgets_init', 'domino_widgets_init' );

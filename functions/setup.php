@@ -3,7 +3,6 @@
 /**
  * Domino setup functions
  */
-
 if(!function_exists('domino_setup')):
 function domino_setup() {
     load_theme_textdomain('domino', get_template_directory() . '/languages');
