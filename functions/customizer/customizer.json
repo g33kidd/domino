@@ -203,7 +203,6 @@
 
     },
 
-
     "footer": {
         "title": "Footer",
         "description": "",
@@ -235,24 +234,6 @@
                 "description": "",
                 "priority": "",
                 "settings": {
-
-                    "layout": {
-                        "default": "",
-                        "type": "theme_mod",
-                        "control": {
-                            "label": "Layout",
-                            "description": "",
-                            "type": "select",
-                            "choices": {
-                                "": "Default",
-                                "no-text": "Hide Text",
-                                "no-nav": "Hide Nav",
-                                "nav-left": "Nav on Left",
-                                "nav-right": "Nav on Right",
-                                "centered": "Stacked & Centered"
-                            }
-                        }
-                    },
 
                     "text-content": {
                         "default": "Proudly powered by <a href='http://wordpress.org'>WordPress</a>",

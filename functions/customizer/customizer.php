@@ -28,7 +28,7 @@ class Domino_Customizer {
         global $wp_customize;
         $creator = file_get_contents($this->creator);
         $panels = json_decode($creator, true);
-        $prefix = 'create_';
+        $prefix = 'domino_';
 
         foreach ($panels as $panel => $data) {
             $panel_id = $prefix . $panel;
