@@ -16,6 +16,11 @@ var processors = [
   // https://github.com/postcss/postcss#plugins
 ];
 
+/**
+ * Compiles style.less
+ *
+ * TODO: Allow the use of SASS or PostCSS
+ */
 gulp.task('compile:style', function() {
   return gulp.src('./styles/style.less')
     .pipe(less())
@@ -25,6 +30,9 @@ gulp.task('compile:style', function() {
     .pipe(gulp.dest('../'))
 });
 
+/**
+ * Adds the theme header to style.css when it compiles.
+ */
 gulp.task('header:style', ['compile:style'], function() {
   var themeBanner =['/*',
   'Theme Name: <%= theme.name %>',

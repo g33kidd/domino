@@ -2,6 +2,9 @@ var gulp      = require('gulp');
 var sass      = require('gulp-sass');
 var config    = require('../config');
 
+/**
+ * Compiles any SASS.
+ */
 gulp.task('compile:sass', function() {
   return gulp.src([config.sass.srcPath, config.sass.ignore, config.ignoreGlobal])
     .pipe(sass())

@@ -13,6 +13,10 @@ var processors = [
   // https://github.com/postcss/postcss#plugins
 ];
 
+/**
+ * Compiles any PostCSS files with the processors
+ * listed above.
+ */
 gulp.task('compile:postcss', function() {
   return gulp.src(config.postcss.srcPath)
     .pipe(postcss(processors))

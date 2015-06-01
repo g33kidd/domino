@@ -5,6 +5,9 @@ var config  = require('../config');
 var LessPluginAutoPrefix = require('less-plugin-autoprefix');
 var autoprefix = new LessPluginAutoPrefix({browsers: ["last 2 versions"]});
 
+/**
+ * Compiles any LESS
+ */
 gulp.task('compile:less', function() {
   return gulp.src([config.less.srcPath, config.less.ignore, config.ignoreGlobal])
     .pipe(less({ plugins: [autoprefix] }))
