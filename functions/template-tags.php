@@ -20,7 +20,6 @@ function the_posts_navigation() {
 	}
 	?>
 	<nav class="navigation posts-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'domino' ); ?></h2>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
@@ -53,7 +52,6 @@ function the_post_navigation() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'domino' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
@@ -218,6 +216,42 @@ function the_archive_description( $before = '', $after = '' ) {
 		 */
 		echo $before . $description . $after;
 	}
+}
+endif;
+
+/**
+ * Echoes all the social links with icons and classes
+ */
+if(!function_exists('the_social_links')):
+function the_social_links() {
+	$result = "";
+	$twitter = tmod('general', 'social', 'twitter');
+	$facebook = tmod('general', 'social', 'facebook');
+	$google = tmod('general', 'social', 'google-plus');
+	$youtube = tmod('general', 'social', 'youtube');
+	$linkedin = tmod('general', 'social', 'linkedin');
+
+	if($twitter) {
+		$result .= '<a href="'.$twitter.'" class="social-icon twitter"><i class="fa fa-twitter"></i></a>';
+	}
+
+	if($facebook) {
+		$result .= '<a href="'.$facebook.'" class="social-icon facebook"><i class="fa fa-facebook"></i></a>';
+	}
+
+	if($youtube) {
+		$result .= '<a href="'.$youtube.'" class="social-icon youtube"><i class="fa fa-youtube"></i></a>';
+	}
+
+	if($google) {
+		$result .= '<a href="'.$google.'" class="social-icon google-plus"><i class="fa fa-google-plus"></i></a>';
+	}
+
+	if($linkedin) {
+		$result .= '<a href="'.$linkedin.'" class="social-icon linkedin"><i class="fa fa-linkedin"></i></a>'
+	}
+
+	echo $result;
 }
 endif;
 
