@@ -4,7 +4,7 @@
  */
 
 // Sets up the theme.
-require get_template_directory() . '/functions/domino-config.php';
+require get_template_directory() . '/functions/config.php';
 require get_template_directory() . '/functions/setup.php';
 
 // Blox - simple meta boxes library
@@ -22,8 +22,8 @@ if($config['enable_domino_customizer']):
     new Domino_Customizer;
 endif;
 
+require get_template_directory() . '/functions/templates.php';
 require get_template_directory() . '/functions/scripts.php';
 require get_template_directory() . '/functions/helpers.php';
 require get_template_directory() . '/functions/widgets.php';
-require get_template_directory() . '/functions/template-tags.php';
 require get_template_directory() . '/functions/extras.php';
