@@ -248,7 +248,7 @@ function the_social_links() {
 	}
 
 	if($linkedin) {
-		$result .= '<a href="'.$linkedin.'" class="social-icon linkedin"><i class="fa fa-linkedin"></i></a>'
+		$result .= '<a href="'.$linkedin.'" class="social-icon linkedin"><i class="fa fa-linkedin"></i></a>';
 	}
 
 	echo $result;
