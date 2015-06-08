@@ -230,7 +230,7 @@ function the_social_links() {
 	$google = tmod('general', 'social', 'google-plus');
 	$youtube = tmod('general', 'social', 'youtube');
 	$linkedin = tmod('general', 'social', 'linkedin');
-
+	
 	if($twitter) {
 		$result .= '<a href="'.$twitter.'" class="social-icon twitter"><i class="fa fa-twitter"></i></a>';
 	}
