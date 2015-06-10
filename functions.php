@@ -7,20 +7,13 @@
 require get_template_directory() . '/functions/config.php';
 require get_template_directory() . '/functions/setup.php';
 
-// Blox - simple meta boxes library
+// Blox & Customizer
 require get_template_directory() . '/functions/blox/blox.php';
 require get_template_directory() . '/functions/blox/metaboxes.php';
+require get_template_directory() . '/functions/customizer/customizer.php';
 
-/**
- * Domino Customizer
- *
- * Only enable the customizer if 'enable_domino_customizer' configuration
- * has been set to true.
- */
-if($config['enable_domino_customizer']):
-    require get_template_directory() . '/functions/customizer/customizer.php';
-    new Domino_Customizer;
-endif;
+// Initialize
+require get_template_directory() . '/functions/init.php';
 
 require get_template_directory() . '/functions/templates.php';
 require get_template_directory() . '/functions/scripts.php';
