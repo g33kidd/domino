@@ -5,15 +5,16 @@ Domino is a beta development theme used by Themazing to experiment with while we
 
 We hav decided to slit the theme up into the following base heirarchy:
 
-1. domino : development/build components
-2. functions : theme functions
-3. assets : theme css, fonts, and javascript
-4. templates : template parts
+1. **functions:** Theme functions and libraries that power Domino's main features.
+2. **assets:** Theme css, javascripts, images, and fonts.
+3. **templates:** Template parts
+4. **stylesheets:** When using domino-cli, use this folder for all Less and Sass files.
 
 
-Installation
-------
+## How do I install domino?
+Clone or download this repository and place it in your wp-content/themes/ directory of your WordPress installation.
 
-### Install Development Dependencies
+## Using domino-cli (soon)
+Install the domino-cli package: `npm install domino`
 
-`npm install`
+**Note:** This package is not available yet. Checkout the [repository](http://github.com/) and test it out locally.

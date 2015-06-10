@@ -71,11 +71,6 @@ class Domino_Customizer {
         }
     }
 
-    public function cleanup($wp_customize) {
-        $wp_customize->get_panel('widgets')->priority = 5.70;
-        $wp_customize->get_panel('widgets')->title = __("Sidebars & Widgets", 'create');
-    }
-
     public function create_control($id, $data, $setting, $section, $wp_customize) {
         require_once('controls.php');
         switch($data['type']) {

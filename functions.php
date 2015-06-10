@@ -10,10 +10,11 @@ require get_template_directory() . '/functions/setup.php';
 // Blox & Customizer
 require get_template_directory() . '/functions/blox/blox.php';
 require get_template_directory() . '/functions/blox/metaboxes.php';
-require get_template_directory() . '/functions/customizer/customizer.php';
 
-// Initialize
-require get_template_directory() . '/functions/init.php';
+if($config['enable_domino_customizer']):
+	require get_template_directory() . '/functions/customizer/customizer.php';
+	new Domino_Customizer();
+endif;
 
 require get_template_directory() . '/functions/templates.php';
 require get_template_directory() . '/functions/scripts.php';
