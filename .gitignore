@@ -1,4 +1,4 @@
 .DS_Store
 .idea/
-domino/node_modules/**/*
-domino/components/**/*
+domino/node_modules/
+domino/components/

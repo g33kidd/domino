@@ -1,18 +1,18 @@
 .inner-addon {
   position: relative;
+  .fa {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+  }
+
+  &.left-addon {
+    .fa { left: 0px; }
+    input { padding-left: 30px; }
+  }
+
+  &.right-addon {
+    .fa { right: 0px; }
+    input { padding-right: 30px; }
+  }
 }
-
-/* style glyph */
-.inner-addon .fa {
-  position: absolute;
-  padding: 10px;
-  pointer-events: none;
-}
-
-/* align glyph */
-.left-addon .fa  { left:  0px;}
-.right-addon .fa { right: 0px;}
-
-/* add padding  */
-.left-addon input  { padding-left:  30px; }
-.right-addon input { padding-right: 30px; }
