@@ -19,6 +19,7 @@ require get_template_directory() . '/functions/blox/metaboxes.php';
  */
 if($config['enable_domino_customizer']):
     require get_template_directory() . '/functions/customizer/customizer.php';
+    require get_template_directory() . '/functions/customizer/helpers.php';
     new Domino_Customizer;
 endif;
 
