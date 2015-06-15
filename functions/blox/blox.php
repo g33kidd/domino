@@ -42,7 +42,7 @@ class Blox_Metabox {
         global $post;
         $blox =& $this;
         $id = $this->id;
-        include $this->template;
+        require $this->template;
     }
 
     function _save($post_id) {
