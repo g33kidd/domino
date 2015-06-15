@@ -41,7 +41,6 @@ endif;
 
 if(!function_exists('the_social_links')):
 function the_social_links() {
-
 	$result = "";
 	$services = ['twitter', 'facebook', 'linkedin', 'google-plus', 'youtube'];
 	foreach ($services as $service) {

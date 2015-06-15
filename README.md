@@ -3,17 +3,40 @@ Domino
 
 Domino is a beta development theme used by Themazing to experiment with while we work on our theme framework that is TBA.
 
-We hav decided to slit the theme up into the following base heirarchy:
+# Installation & Setup #
 
-1. domino : development/build components
-2. functions : theme functions
-3. assets : theme css, fonts, and javascript
-4. templates : template parts
+#### Install Development Dependencies ####
 
+We use npm and bower for dependencies. Make sure you have npm, gulp, and bower installed globally on your system. As far as running commands, you will be running all gulp commands in the `domino` directory within the theme.
 
-Installation
-------
+```bash
+cd <theme_directory>/domino/
+npm install && bower install
+```
 
-### Install Development Dependencies
+#### Setup ####
+Before you get started, run the following commands:
+```bash
+gulp copy:assets
+gulp watch
+```
 
-`npm install`
+# Commands #
+`gulp copy:assets` copies all fonts and js files required by domino.
+
+`gulp compile:style` compiles style.less to style.css and adds the theme header.
+
+`gulp compile:less` compiles anything except style.less.
+
+`gulp compile:bootstrap` compiles all bootstrap js into bootstrap.js
+
+`gulp watch` watches for file changes and compiles less/sass/postcss
+
+# Structure #
+**domino/** holds all less/sass stylesheets and gulp tasks
+
+**assets/** contains theme assets including js, css, fonts, etc..
+
+**templates/** template parts and modules
+
+**functions/** the main functionality of domino including blox, customizer, and helper functions.

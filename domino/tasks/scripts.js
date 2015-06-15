@@ -7,7 +7,7 @@ var concat = require('gulp-concat');
  * Compiles the necessary bootstrap files in
  * the correct file order.
  */
-gulp.task('compile:js', function() {
+gulp.task('compile:bootstrap', function() {
   gulp.src(['./components/bootstrap/js/transition.js',
     './components/bootstrap/js/alert.js',
     './components/bootstrap/js/button.js',
