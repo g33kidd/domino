@@ -47,7 +47,7 @@ function the_social_links() {
 	foreach ($services as $service) {
 		$link = tmod('general', 'social', $service);
 		if(!empty($link)) {
-			$result .= '<a href="'. $link .'" class="social-icon '. $service .'"><i class="fa fa-'. $service .'"></i></a>'
+			$result .= '<a href="'. $link .'" class="social-icon '. $service .'"><i class="fa fa-'. $service .'"></i></a>';
 		}
 	}
 
