@@ -10,6 +10,8 @@ require get_template_directory() . '/functions/setup.php';
 // Blox - simple meta boxes library
 require get_template_directory() . '/functions/blox/blox.php';
 require get_template_directory() . '/functions/blox/metaboxes.php';
+require get_template_directory() . '/functions/modules/base.php';
+require get_template_directory() . '/functions/modules/setup.php';
 
 /**
  * Domino Customizer

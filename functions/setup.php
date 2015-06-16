@@ -31,8 +31,8 @@ endif;
  * Automatically create the home and blog pages. This function
  * will also update the settings for static pages under Settings > Reading.
  */
-if(!function_exists('setup_home_and_blog_pages')):
-function setup_home_and_blog_pages() {
+if(!function_exists('domino_setup_home_and_blog_pages')):
+function domino_setup_home_and_blog_pages() {
     $home_page = array('post_name'=>'home', 'post_title'=>'Home', 'post_status'=>'publish', 'post_type'=>'page');
     $blog_page = array('post_name'=>'blog', 'post_title'=>'Blog', 'post_status'=>'publish', 'post_type'=>'page');
 
@@ -53,6 +53,6 @@ function setup_home_and_blog_pages() {
 
 // Only call this function if the config option is set.
 if($config['create_static_pages']){
-    add_action('init', 'setup_home_and_blog_pages');
+    add_action('init', 'domino_setup_home_and_blog_pages');
 }
 endif;
