@@ -13,13 +13,7 @@ $config = array(
     'create_static_pages' => true,
 
     /**
-     * Do you want features enabled for creating a custom
-     * header?
-     */
-    'enable_custom_header' => true,
-
-    /**
-     * Blox meta boxes show options on certain pages that 
+     * Blox meta boxes show options on certain pages that
      * make it easy for developers to add features.
      */
     'enable_blox_meta_boxes' => true,
@@ -28,6 +22,11 @@ $config = array(
      * Customizer allows you to add options to the WordPress customizer.
      */
     'enable_domino_customizer' => true,
+
+    /**
+     * Enables modules for use in templates.
+     */
+    'enable_domino_modules' => true,
 );
 
 ?>

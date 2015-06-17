@@ -1,0 +1,1 @@
+<?php domino_posted_on(); ?>

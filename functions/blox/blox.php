@@ -32,17 +32,17 @@ class Blox_Metabox {
     function _init() {
         $types = explode('|', $this->types);
         foreach($types as $type) {
-            add_meta_box($this->id . '_metabox', 
-                $this->title, array($this, '_setup'), 
+            add_meta_box($this->id . '_metabox',
+                $this->title, array($this, '_setup'),
                 $type, $this->context, $this->priority);
         }
     }
 
-    function _setup() {
+    function _setup($post) {
         global $post;
         $blox =& $this;
         $id = $this->id;
-        include $this->template;
+        require $this->template;
     }
 
     function _save($post_id) {

@@ -1,5 +1,3 @@
 .DS_Store
 .idea/
-domino/node_modules/**/*
-domino/components/**/*
 domino.json

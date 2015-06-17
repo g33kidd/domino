@@ -1,14 +1,6 @@
 <?php
 
 /**
- * Gets theme_mod from WordPress
- */
-function tmod($p, $s, $s) {
-    $mod = get_theme_mod("create_{$p}_{$s}-{$s}");
-    return $mod;
-}
-
-/**
  * Adds custom classes to the array of body classes.
  * @param array $classes Classes for the body element
  * @return array
