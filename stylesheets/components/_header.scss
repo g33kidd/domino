@@ -1,6 +1,6 @@
 .site-header {
   padding: 20px 0px;
-  background-color: @header-bg;
+  background-color: #FFF;
   .site-branding {
     .site-logo {
       float:left;
@@ -31,12 +31,12 @@
         }
         a {
           padding: 5px 5px;
-          color: @nav-item-color;
+          color: #333;
           transition: color 150ms ease;
           &:hover {
-            color: darken(@nav-item-color, 15%);
+            color: darken(#333, 15%);
             text-decoration: none;
-            border-bottom: 2px solid @brand-primary;
+            border-bottom: 2px solid #e3e3e3;
           }
         }
       }
