@@ -1,9 +1,19 @@
 @import "_variables";
+/* @import "mixins/_all"; */
 
 @import "bootstrap";
 
 @import "_global";
 
+
+
+// Components
 @import "components/_header";
 @import "components/_footer";
 @import "components/_sidebar";
+@import "components/_wordpress";
+
+// Modules
+@import "modules/_404";
+@import "modules/_posts";
+@import "modules/_pages";

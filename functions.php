@@ -25,3 +25,4 @@ require get_template_directory() . '/functions/helpers.php';
 require get_template_directory() . '/functions/widgets.php';
 require get_template_directory() . '/functions/templates.php';
 require get_template_directory() . '/functions/extras.php';
+require get_template_directory() . '/functions/walker.php';
