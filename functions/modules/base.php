@@ -43,12 +43,25 @@ class Domino_Modules {
    * @param  array $module the module to be displayed
    */
   public function show() {
-    echo "TEST";
+    echo '<table>';
+    echo '<tbody>';
     foreach ($this->modules as $module) {
-      echo "<pre>";
-      print_r($module);
-      echo "</pre>";
+      ?>
+      <tr>
+        <td><?= $module['title']; ?></td>
+        <td>
+          <?
+          foreach($module['fields'] as $field) {
+            call_user_func(array($this, "show_{$field['type']}_field"), $module, $field);
+          }
+          ?>
+        </td>
+      </tr>
+      <?
     }
+
+    echo '</tbody>';
+    echo '</table>';
   }
 
   /**
@@ -60,6 +73,25 @@ class Domino_Modules {
     if($this->is_valid_args($args)) {
       $this->modules[$this->get_module_id($args['name'])] = $args;
     }
+  }
+
+  public function show_text_field($module, $field) {
+    echo '<label>'. $field['title'] .'</label><input type="text" name="text_field" value="">';
+  }
+
+  public function show_textarea_field($module, $field) {
+    echo '<div class="form-field">
+            <label>'. $field['title'] .'</label>
+            <textarea name="textarea_field" rows="8" cols="40"></textarea>
+          </div>';
+  }
+
+  public function show_wysiwyg_field($module, $field) {
+    echo wp_editor('', 'wp_editor-module');
+  }
+
+  public function show_image_field($module, $field) {
+    echo '<label>'. $field['title'] .'</label><input type="file" name="name" value="">';
   }
 
   /**
