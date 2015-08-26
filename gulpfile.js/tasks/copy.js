@@ -1,5 +1,5 @@
 var gulp = require("gulp");
-var config = require('../config');
+var config = require('../../config');
 
 /**
  * Gulp Copy task for copying fonts and other assets

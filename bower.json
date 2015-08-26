@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "homepage": "https://github.com/Themazing/domino",
   "authors": [
+    "Joshua Kidd",
     "Brandon Kidd"
   ],
   "description": "Domino is a beta wordpress theme",
@@ -15,7 +16,7 @@
     "tests"
   ],
   "devDependencies": {
-    "bootstrap": "~3.3.4",
+    "bootstrap-sass": "~3.3.5",
     "fontawesome": "~4.3.0"
   }
 }
