@@ -7,13 +7,9 @@ var project     = 'domino',
 
 var path = require('path');
 
-var load_paths = bower({
-  base: path.join(__dirname, "bower_components"),
-  filter: '**/_*.scss'
-});
-
 var includePaths = [
-  bower + 'boostrap-sass/assets/stylesheets/**/*.scss'
+  __dirname + '/bower_components/' + 'bootstrap-sass/assets/stylesheets',
+  __dirname + '/bower_components/' + 'fontawesome/scss'
 ];
 
 module.exports = {
@@ -49,7 +45,10 @@ module.exports = {
   styles: {
     build: {
       src: [assets + "scss/**/*scss", '!' + assets + "scss/_*.scss"],
-      dest: build
+      dest: build,
+      ruby: {
+        src: assets + "scss/"
+      }
     },
     dist: {
       src: [dist + '**/*.css', '!' + dist + '**/*.min.css'],
@@ -70,12 +69,26 @@ module.exports = {
       'sourcemap=none': true
     },
     libsass: {
-      includePaths: load_paths,
+      includePaths: includePaths,
       precision: 6,
       onError: function(err) {
         return console.log(err);
       }
     }
+  },
+
+  scripts: {
+    dest: build + "assets/js/",
+    lint: {
+      src: [theme + 'assets/**/*.js']
+    },
+    minify: {
+      src: [build + 'assets/js/**/*.js', '!' + build + 'assets/js/**/*.min.js'],
+      rename: { suffix: '.min' },
+      uglify: {},
+      dest: build + 'assets/js/'
+    },
+    namespace: 'wp-'
   },
 
   browsersync: {
@@ -86,6 +99,22 @@ module.exports = {
     proxy: 'localhost:8080',
     watchOptions: {
       debounceDelay: 2000
+    }
+  },
+
+  images: {
+    build: {
+      src: theme + "**/*(*.jpg|*.png|*.jpeg|*.gif)",
+      dest: build
+    },
+    dist: {
+      src: [dist + '**/*(*.jpg|*.png|*.jpeg|*.gif)', '!' + dist + 'screenshot.png'],
+      imagemin: {
+        optimizationLevel: 7,
+        progressive: true,
+        iterlaced: true
+      },
+      dest: build
     }
   },
 

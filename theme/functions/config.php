@@ -27,6 +27,9 @@ $config = array(
      * Enables modules for use in templates.
      */
     'enable_domino_modules' => true,
+
+    // Modules: the custom option for ACF
+    'enable_modules' => false,
 );
 
 ?>

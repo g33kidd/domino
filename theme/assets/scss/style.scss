@@ -14,6 +14,17 @@
 @import "variables";
 @import "bootstrap";
 
-body {
-  background-color: $bg-color;
-}
+@import "extras/wordpress";
+
+// Some woocommerce styles to override woocommerce default styles
+// Un-comment and edit (extras/_woocommerce.scss) to use.
+// @import "extras/woocommerce";
+
+@import "components/header";
+@import "components/footer";
+@import "components/sidebar";
+
+@import "modules/forms";
+@import "modules/pages";
+@import "modules/posts";
+@import "modules/search";

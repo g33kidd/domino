@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Domino is a beta wordpress theme",
   "main": "gulpfile.js",
-  "keywords": ["wordpress"],
+  "keywords": [
+    "wordpress"
+  ],
   "author": "Joshua Kidd",
   "license": "MIT",
   "private": true,
@@ -12,14 +14,11 @@
     "url": "https://github.com/Themazing/domino/issues"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Themazing/domino"
-  },
-  "scripts": {
-    "postinstall": "bower install"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -29,26 +28,26 @@
     "gulp-autoprefixer": "^2.3.0",
     "gulp-changed": "^1.2.1",
     "gulp-concat": "^2.6.0",
-    "gulp-imagemin": "^2.3.0",
-    "gulp-jshint": "^1.11.2",
-    "gulp-livereload": "^3.8.0",
+    "gulp-dest": "^0.2.2",
     "gulp-filesize": "0.0.6",
     "gulp-header": "^1.2.2",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jshint": "^1.11.2",
     "gulp-less": "^3.0.3",
     "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^1.0.0-rc",
     "gulp-minify-css": "^1.1.1",
     "gulp-postcss": "^5.1.6",
     "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "^1.0.5",
     "gulp-sass": "^2.0.1",
-    "gulp-strip-css-comments": "^1.1.0",
     "gulp-sourcemaps": "1.5.2",
+    "gulp-strip-css-comments": "^1.1.0",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
-    "gulp-load-plugins": "^1.0.0-rc",
     "gulp-watch": "^4.2.4",
-    "merge-stream": "^0.1.8",
     "less-plugin-autoprefix": "^1.4.1",
+    "merge-stream": "^0.1.8",
     "postcss": "^4.1.11",
     "postcss-each": "^0.2.0",
     "postcss-mixins": "^0.3.0",

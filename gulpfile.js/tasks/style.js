@@ -5,11 +5,10 @@ var config  = require('../../config').styles;
 var autoprefixer = require('autoprefixer-core');
 
 gulp.task('styles-ruby-sass', function() {
-  return gulp.src(config.build.src)
-    .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.rubySass(config.rubySass))
+  return plugins.rubySass(config.build.ruby.src, config.rubySass)
+    // .pipe(plugins.sourcemaps.init())
     .on('error', gutil.log)
-    .pipe(plugins.dest(config.build.dest))
+    // .pipe(plugins.dest(config.build.dest))
     .pipe(plugins.rename(config.rename))
     .pipe(plugins.minifyCss(config.minify))
     .pipe(gulp.dest(config.build.dest));
@@ -30,12 +29,3 @@ gulp.task('styles-libsass', function() {
 });
 
 gulp.task('styles', ['styles-' + config.compiler]);
-
-// gulp.task('compile:style', function() {
-//   return gulp.src('./styles/style.less')
-//     .pipe(less())
-//     .on('error', function(error) {
-//       console.log(error)
-//     })
-//     .pipe(gulp.dest('../'))
-// });

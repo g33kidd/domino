@@ -4,26 +4,25 @@
  */
 
 // Sets up the theme.
-require get_template_directory() . '/functions/domino-config.php';
+require get_template_directory() . '/functions/config.php';
 require get_template_directory() . '/functions/setup.php';
 
 // Blox - simple meta boxes library
-require get_template_directory() . '/functions/blox/blox.php';
-require get_template_directory() . '/functions/blox/metaboxes.php';
-require get_template_directory() . '/functions/modules/base.php';
-require get_template_directory() . '/functions/modules/setup.php';
+if($config['enable_blox_meta_boxes']) {
+  require get_template_directory() . '/functions/blox/blox.php';
+  require get_template_directory() . '/functions/blox/metaboxes.php';
+}
 
-/**
- * Domino Customizer
- *
- * Only enable the customizer if 'enable_domino_customizer' configuration
- * has been set to true.
- */
-if($config['enable_domino_customizer']):
-    require get_template_directory() . '/functions/customizer/customizer.php';
-    require get_template_directory() . '/functions/customizer/helpers.php';
-    new Domino_Customizer;
-endif;
+if($config['enable_modules']) {
+  require get_template_directory() . '/functions/modules/base.php';
+  require get_template_directory() . '/functions/modules/setup.php';
+}
+
+if($config['enable_domino_customizer']) {
+  require get_template_directory() . '/functions/customizer/customizer.php';
+  require get_template_directory() . '/functions/customizer/helpers.php';
+  new Domino_Customizer;
+}
 
 require get_template_directory() . '/functions/scripts.php';
 require get_template_directory() . '/functions/helpers.php';
